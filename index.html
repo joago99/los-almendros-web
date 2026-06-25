@@ -1,178 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Construcciones Los Almendros - Calidad y Confianza</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
-        .font-serif-title {
-            font-family: 'Playfair Display', Georgia, "Times New Roman", Times, serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        .hero-carousel {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-        .hero-slide {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-        .hero-slide.active {
-            opacity: 1;
-        }
-        @keyframes slideshow {
-            0% { opacity: 0; }
-            5% { opacity: 1; }
-            33% { opacity: 1; }
-            38% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-        .hero-slide:nth-child(1) { animation: slideshow 16s infinite; }
-        .hero-slide:nth-child(2) { animation: slideshow 16s infinite 4s; }
-        .hero-slide:nth-child(3) { animation: slideshow 16s infinite 8s; }
-
-        /* Botón WhatsApp flotante */
-        .whatsapp-float {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 999;
-            transform: translateY(0);
-            transition: transform .2s ease-in-out;
-        }
-        .whatsapp-float:hover {
-            transform: translateY(-4px);
-        }
-        .whatsapp-float img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            box-shadow: 0 6px 18px rgba(0,0,0,.25);
-            background: #25D366;
-            padding: 6px;
-        }
-    </style>
-</head>
-<body class="font-sans text-slate-600 antialiased">
-
-    <!-- Navegación principal -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <span class="text-2xl font-serif-title font-bold text-slate-800">Los Almendros</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Inicio</a>
-                    <a href="#servicios" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Servicios</a>
-                    <a href="#proyectos" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Proyectos</a>
-                    <a href="#nosotros" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Nosotros</a>
-                    <a href="#contacto" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Contacto</a>
-                </div>
-                <button id="menu-toggle" class="md:hidden text-slate-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 py-2 space-y-1">
-                <a href="#inicio" class="block py-2 text-slate-700 font-serif-title">Inicio</a>
-                <a href="#servicios" class="block py-2 text-slate-700 font-serif-title">Servicios</a>
-                <a href="#proyectos" class="block py-2 text-slate-700 font-serif-title">Proyectos</a>
-                <a href="#nosotros" class="block py-2 text-slate-700 font-serif-title">Nosotros</a>
-                <a href="#contacto" class="block py-2 text-slate-700 font-serif-title">Contacto</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Contenido principal -->
-    <div>
-        <!-- Hero -->
-        <section id="inicio" class="relative">
-            <div class="hero-carousel">
-                <div class="hero-slide active" style="background-image: url('assets/images/buin-hero.jpg');"></div>
-                <div class="hero-slide" style="background-image: url('assets/images/buin-proyecto-1.jpg');"></div>
-                <div class="hero-slide" style="background-image: url('assets/images/buin-proyecto-3.jpg');"></div>
-            </div>
-            <div class="relative min-h-[500px] flex items-center justify-center bg-black/40">
-                <div class="text-center px-4">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif-title font-bold text-white mb-4">Construimos Confianza</h1>
-                    <p class="text-xl md:text-2xl mb-8 text-slate-200">Calidad, confianza y diseño a tu medida</p>
-                    <a href="#contacto" class="inline-block bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
-                        Solicita tu presupuesto
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Servicios -->
-        <section id="servicios" class="py-16 bg-slate-50">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4 font-serif-title">Nuestros Servicios</h2>
-                    <p class="text-lg text-slate-600">Diseñamos y construimos lo que necesites</p>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Construcción Residencial</h3>
-                        <p class="text-slate-600">Casas, ampliaciones y remodelaciones completas. Cumplimos con tus ideas y estándares.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Diseño y Planificación</h3>
-                        <p class="text-slate-600">Anteproyectos y diseños personalizados adaptables a tu estilo de vida y presupuesto.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Proyectos a Medida</h3>
-                        <p class="text-slate-600">Desde una idea hasta entrega final. Trabajamos contigo en cada etapa del proceso.</p>
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8 mt-8">
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Edificios Comerciales</h3>
-                        <p class="text-slate-600">Oficinas, locales comerciales y espacios empresariales funcionales.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Instituciones Públicas</h3>
-                        <p class="text-slate-600">Experiencia en construcción de colegios, centros comunitarios e iglesias.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Obras Varias</h3>
-                        <p class="text-slate-600">Tenemos experiencia construyendo de todo tipo, con la misma calidad y compromiso.</p>
-                    </div>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8 mt-8">
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Tramitología y Licencias</h3>
-                        <p class="text-slate-600">Gestionamos permisos, licencias y regularizaciones para que tu avance sin trabas.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Registro y Supervisión</h3>
-                        <p class="text-slate-600">Conocemos los trámites necesarios para obras de edificación y urbanización.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">Documentación y Cumplimiento</h3>
-                        <p class="text-slate-600">Te asesoramos en la presentación de documentación y cumplimiento normativo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Proyectos -->
         <section id="proyectos" class="py-16">
             <div class="container mx-auto px-4">
@@ -230,129 +55,91 @@
             </div>
         </section>
 
-        <!-- Nosotros -->
-        <section id="nosotros" class="py-16 bg-slate-50">
+        <!-- Registro de construcciones -->
+        <section id="registro" class="py-16 bg-slate-50">
             <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6 font-serif-title">Sobre Nosotros</h2>
-                        <p class="text-lg text-slate-600 mb-4">
-                            Somos una constructora familiar con sede en Buin, dedicada a construir espacios que inspiran.
-                        </p>
-                        <p class="text-lg text-slate-600 mb-4">
-                            Con años de experiencia combinada entre obra, administración y ventas, ofrecemos un servicio cercano y transparente.
-                        </p>
-                        <p class="text-lg text-slate-600">
-                            Nuestro compromiso es la calidad y la confianza, construyendo relaciones duraderas con cada cliente.
-                        </p>
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4 font-serif-title">Proyectos y Construcciones Realizadas</h2>
+                    <p class="text-lg text-slate-600">Resumen de obras por rubro, con superficie construida</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">1. Proyectos Educacionales</h3>
+                        <ul class="space-y-2 text-slate-700">
+                            <li>• Escuela Básica Saint Mary de Buin — 600 m²</li>
+                            <li>• Escuela Especial de Lenguaje de Buin — 180 m²</li>
+                            <li>• Liceo A-131 de Buin (Supervisión de Contratista) — 3.600 m²</li>
+                            <li>• Escuela Santa Victoria de Buin (Supervisión de Mandante) — 700 m²</li>
+                            <li>• Escuela Lo Salinas (Supervisión de Mandante) — 500 m²</li>
+                            <li>• Anexo Liceo Moderno Polivalente Cardenal Caro — 956 m²</li>
+                            <li>• Ampliación Liceo Moderno Cardenal Caro Media (Salas) — 291 m²</li>
+                            <li>• Ampliación Liceo Moderno Cardenal Caro Media (Casino) — 202 m²</li>
+                            <li>• Ampliación Liceo Moderno Cardenal Caro Básica — 822 m²</li>
+                            <li>• Colegio Altos del Valle, Maipo — 2.020 m²</li>
+                            <li>• Colegio Los Pinos, San Bernardo — 418 m²</li>
+                            <li>• Colegio Juan XXIII, San Bernardo — 1.980 m²</li>
+                            <li>• Colegio San Bernardo Abad, San Bernardo — 1.816 m²</li>
+                        </ul>
+                        <p class="mt-3 font-semibold text-slate-800">Total superficie educacional: 14.085 m²</p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <div class="grid grid-cols-2 gap-6 text-center">
-                            <div class="p-4">
-                                <div class="text-4xl font-bold text-slate-800">20+</div>
-                                <div class="text-slate-600">Años de experiencia</div>
-                            </div>
-                            <div class="p-4">
-                                <div class="text-4xl font-bold text-slate-800">150+</div>
-                                <div class="text-slate-600">Proyectos realizados</div>
-                            </div>
-                            <div class="p-4">
-                                <div class="text-4xl font-bold text-slate-800">100%</div>
-                                <div class="text-slate-600">Clientes satisfechos</div>
-                            </div>
-                            <div class="p-4">
-                                <div class="text-4xl font-bold text-slate-800">100%</div>
-                                <div class="text-slate-600">Compromiso</div>
-                            </div>
-                        </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">2. Proyectos Industriales y Agroindustriales</h3>
+                        <ul class="space-y-2 text-slate-700">
+                            <li>• Industria Química Chile Ltda. (Paine) — 16.000 m²</li>
+                            <li>• Frigorífico Friofort Ltda. — 250 m²</li>
+                            <li>• Frutícola Almifrut Ltda. — 80 m²</li>
+                            <li>• Comercial El Remanso S.A. — 6.200 m²</li>
+                            <li>• Cerraduras Poli S.A. — 4.350 m²</li>
+                            <li>• Idal S.A. Planta Paine — 1.752 m²</li>
+                            <li>• Idal Planta Buin — 3.200 m²</li>
+                            <li>• Agrícola Convento Viejo, Buin — 2.792 m²</li>
+                            <li>• Elaboradora de Envases S.A. — 3.500 m²</li>
+                        </ul>
+                        <p class="mt-3 font-semibold text-slate-800">Total superficie industrial/agroindustrial: 38.844 m²</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">3. Proyectos Comerciales</h3>
+                        <ul class="space-y-2 text-slate-700">
+                            <li>• Supermercado La Estrella — 400 m²</li>
+                            <li>• Polla Gol Buin (Santa María 304, Buin) — 100 m²</li>
+                            <li>• Cecinas Bavaria — 150 m²</li>
+                            <li>• Buin Zoo — 6.300 m²</li>
+                            <li>• Galería Balmaceda de Buin — 500 m²</li>
+                            <li>• Galería San Bernardo (Covadonga N° 360) — 350 m²</li>
+                            <li>• Casa de Eventos de Buin — 600 m²</li>
+                            <li>• Servicios Agrícolas “Eliseo” — 500 m²</li>
+                        </ul>
+                        <p class="mt-3 font-semibold text-slate-800">Total superficie comercial: 8.900 m²</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-3">4. Anexo — Principales Proyectos Desarrollados (Leonardo Almendra Avendaño - Arquitecto)</h3>
+                        <p class="text-sm text-slate-600 mb-2">Proyectos realizados y construidos:</p>
+                        <ul class="space-y-2 text-slate-700">
+                            <li>• Colegio San Bernardo Abad, San Bernardo — 1.800 m²</li>
+                            <li>• Colegio Juan XXIII, San Bernardo — 2.200 m²</li>
+                            <li>• Colegio Cardenal Caro Anexo Básica, Buin — 600 m²</li>
+                            <li>• Ampliación y Remodelación Colegio Cardenal Caro Básica, Buin — 900 m²</li>
+                            <li>• Ampliación y Remodelación Colegio Cardenal Caro Media, Buin — 1.200 m²</li>
+                            <li>• Colegio Valles del Maipo, Buin — 1.600 m²</li>
+                            <li>• Colegio Cecilia González, San Bernardo — 800 m²</li>
+                            <li>• Viviendas Unifamiliares — 6.000 m²</li>
+                            <li>• Capilla San Andrés, Buin — 100 m²</li>
+                            <li>• Capilla San Lucas, Buin — 120 m²</li>
+                            <li>• Galería Parra, Buin — 500 m²</li>
+                            <li>• Ampliación Discoteca Tempo, Buin — 400 m²</li>
+                        </ul>
+                        <p class="text-sm text-slate-600 mt-3 mb-2">Proyectos realizados:</p>
+                        <ul class="space-y-2 text-slate-700">
+                            <li>• Remodelación y Ampliación Primera Compañía de Bomberos Buin — 350 m²</li>
+                            <li>• Diseño Quinta Compañía de Bomberos, Valdivia de Paine, Buin — 400 m²</li>
+                            <li>• Packing Agrícola Convento Viejo, Campusano, Buin — 3.400 m²</li>
+                            <li>• Packing Agrícola Unikiwi, Alto Jahuel, Buin — 800 m²</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Contacto -->
-        <section id="contacto" class="py-16">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4 font-serif-title">Contacto</h2>
-                    <p class="text-lg text-slate-600">Escribinos y te responderemos a la brevedad</p>
-                </div>
-                <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
-                    <form id="contact-form" action="https://formspree.io/f/xbdvdvno" method="POST" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="nombre" class="block text-sm font-medium text-slate-700 mb-1">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" required class="w-full border border-slate-300 rounded-md p-2 focus:ring-amber-500 focus:border-amber-500">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                                <input type="email" id="email" name="email" required class="w-full border border-slate-300 rounded-md p-2 focus:ring-amber-500 focus:border-amber-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="asunto" class="block text-sm font-medium text-slate-700 mb-1">Asunto</label>
-                            <input type="text" id="asunto" name="asunto" required class="w-full border border-slate-300 rounded-md p-2 focus:ring-amber-500 focus:border-amber-500">
-                        </div>
-                        <div>
-                            <label for="mensaje" class="block text-sm font-medium text-slate-700 mb-1">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="4" required class="w-full border border-slate-300 rounded-md p-2 focus:ring-amber-500 focus:border-amber-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-4 rounded-lg transition duration-300">
-                            Enviar mensaje
-                        </button>
-                    </form>
-                    <div id="form-success" class="hidden mt-4 p-4 rounded bg-green-50 text-green-700 text-center">
-                        ✅ Mensaje enviado correctamente. Te responderemos a la brevedad.
-                    </div>
-                    <div id="form-error" class="hidden mt-4 p-4 rounded bg-red-50 text-red-700 text-center">
-                        ❌ Hubo un error al enviar el mensaje. Por favor intente nuevamente.
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-300 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-2xl font-serif-title font-bold text-white mb-4">Los Almendros</h3>
-                    <p class="text-slate-400">Construcción y diseño con calidad y confianza en Buin y alrededores.</p>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="#" aria-label="Facebook" class="hover:text-white transition">Facebook</a>
-                        <a href="#" aria-label="Instagram" class="hover:text-white transition">Instagram</a>
-                        <a href="#" aria-label="LinkedIn" class="hover:text-white transition">LinkedIn</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-serif-title font-semibold text-white mb-4">Enlaces</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#servicios" class="hover:text-white transition">Servicios</a></li>
-                        <li><a href="#proyectos" class="hover:text-white transition">Proyectos</a></li>
-                        <li><a href="#nosotros" class="hover:text-white transition">Nosotros</a></li>
-                        <li><a href="#contacto" class="hover:text-white transition">Contacto</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-serif-title font-semibold text-white mb-4">Contacto</h4>
-                    <p>📍 Chile</p>
-                    <p>📞 +56 9 XXXX XXXX</p>
-                    <p>✉️ contacto@losalmendros.cl</p>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
-                <p>&copy; 2025 Los Almendros. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp flotante -->
-    <a class="whatsapp-float" href="https://wa.me/569XXXXXXXX" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-    </a>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/main.js"></script>
-</body>
-</html>
