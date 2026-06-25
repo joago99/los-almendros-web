@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos - Construcciones Los Almendros</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
+        .font-serif-title {
+            font-family: 'Playfair Display', Georgia, "Times New Roman", Times, serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-600 antialiased">
+    <!-- Navegación principal -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-serif-title font-bold text-slate-800">Los Almendros</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Inicio</a>
+                    <a href="proyectos.html" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Proyectos</a>
+                    <a href="index.html#servicios" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Servicios</a>
+                    <a href="index.html#nosotros" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Nosotros</a>
+                    <a href="index.html#contacto" class="text-slate-700 hover:text-slate-900 font-medium font-serif-title">Contacto</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-slate-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-1">
+                <a href="index.html" class="block py-2 text-slate-700 font-serif-title">Inicio</a>
+                <a href="proyectos.html" class="block py-2 text-slate-700 font-serif-title">Proyectos</a>
+                <a href="index.html#servicios" class="block py-2 text-slate-700 font-serif-title">Servicios</a>
+                <a href="index.html#nosotros" class="block py-2 text-slate-700 font-serif-title">Nosotros</a>
+                <a href="index.html#contacto" class="block py-2 text-slate-700 font-serif-title">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-800 mb-4 font-serif-title">Nuestros Proyectos</h1>
+            <p class="text-lg text-slate-600">Galería de obras realizadas</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="overflow-hidden rounded-lg shadow-md bg-white">
+                <img src="assets/images/buin-proyecto-1.jpg" alt="Casa Familiar" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Casa Familiar</h3>
+                    <p class="text-slate-600">Vivienda unifamiliar de 120 m² en Buin</p>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-md bg-white">
+                <img src="assets/images/Ampliacion.png" alt="Ampliación" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Ampliación</h3>
+                    <p class="text-slate-600">Ampliación de obra existente</p>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-md bg-white">
+                <img src="assets/images/buin-proyecto-3.jpg" alt="Remodelación Integral" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Remodelación Integral</h3>
+                    <p class="text-slate-600">Remodelación completa de living y cocina</p>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-md bg-white">
+                <img src="assets/images/Capilla San Andrés Buin.png" alt="Capilla San Andrés Buin" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Capilla San Andrés Buin</h3>
+                    <p class="text-slate-600">Templo católico de Buin: construcción y acondicionamiento integral para la comunidad.</p>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-md bg-white">
+                <img src="assets/images/Colegio 131 Basica Buin.png" alt="Colegio 131 Básica Buin" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Colegio 131 Básica Buin</h3>
+                    <p class="text-slate-600">Proyecto institucional en Buin</p>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-md bg-white">
+                <img src="assets/images/Colegio San Bernardo.png" alt="Colegio San Bernardo" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Colegio San Bernardo</h3>
+                    <p class="text-slate-600">Obra educativa en San Bernardo</p>
+                </div>
+            </div>
+            <div class="overflow-hidden rounded-lg shadow-md bg-white">
+                <img src="assets/images/Colegio san fernando oriente Buin.png" alt="Colegio San Fernando Oriente" class="w-full h-64 object-cover">
+                <div class="p-6 bg-white">
+                    <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Colegio San Fernando Oriente</h3>
+                    <p class="text-slate-600">Proyecto institucional en Buin</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-serif-title font-bold text-white mb-4">Los Almendros</h3>
+                    <p class="text-slate-400">Construcción y diseño con calidad y confianza en Buin y alrededores.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="hover:text-white transition">Facebook</a>
+                        <a href="#" class="hover:text-white transition">Instagram</a>
+                        <a href="#" class="hover:text-white transition">LinkedIn</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-serif-title font-semibold text-white mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="proyectos.html" class="hover:text-white transition">Proyectos</a></li>
+                        <li><a href="index.html#servicios" class="hover:text-white transition">Servicios</a></li>
+                        <li><a href="index.html#contacto" class="hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-serif-title font-semibold text-white mb-4">Contacto</h4>
+                    <p>📍 Chile</p>
+                    <p>📞 +56 9 XXXX XXXX</p>
+                    <p>✉️ contacto@losalmendros.cl</p>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500">
+                <p>&copy; 2025 Los Almendros. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
