@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Los Almendros</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        .font-serif-title { font-family: 'Playfair Display', Georgia, "Times New Roman", Times, serif; }
+        html { scroll-behavior: smooth; }
+        .skip-link {
+            position: absolute; top: -100%; left: 1rem; z-index: 10000; padding: 0.5rem 0.75rem; background: #0f172a; color: #fff; border-radius: 0 0 0.5rem 0.5rem;
+        }
+        .skip-link:focus { top: 0; }
+        .whatsapp-float {
+            position: fixed; right: 24px; bottom: 24px; z-index: 999;
+            transform: translateY(0); transition: transform .2s ease-in-out;
+        }
+        .whatsapp-float:hover { transform: translateY(-4px); }
+        .whatsapp-float img {
+            width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 6px 18px rgba(0,0,0,.25);
+            background: #25D366; padding: 6px;
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-600 antialiased bg-stone-50">
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <main id="main-content">
+    <!-- Header -->
+    <header class="border-b border-stone-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div class="mx-auto max-w-6xl px-4">
+            <div class="flex items-center justify-between h-16">
+                <a href="../index.html" class="font-serif-title text-xl md:text-2xl font-bold text-stone-900">Constructora Los Almendros</a>
+                <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+                    <a href="../index.html" class="text-sm font-medium text-stone-700 hover:text-stone-900 transition">Inicio</a>
+                    <a href="../index.html#proyectos" class="text-sm font-medium text-stone-700 hover:text-stone-900 transition">Proyectos</a>
+                    <a href="../index.html#contacto" class="text-sm font-medium text-stone-700 hover:text-stone-900 transition">Servicios</a>
+                    <a href="../index.html#contacto" class="inline-flex items-center justify-center rounded-lg bg-amber-700 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-800 transition">Cotiza</a>
+                    <a href="index.html" class="inline-flex items-center justify-center rounded-lg border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 hover:bg-stone-100 transition">Portal</a>
+                </nav>
+                <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-stone-700 hover:bg-stone-100 transition" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+                    <svg class="size-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden border-t border-stone-200/80 bg-white">
+            <div class="mx-auto max-w-6xl px-4 py-3 space-y-1">
+                <a href="../index.html" class="block rounded-md px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50">Inicio</a>
+                <a href="../index.html#proyectos" class="block rounded-md px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50">Proyectos</a>
+                <a href="../index.html#contacto" class="block rounded-md px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50">Servicios</a>
+                <a href="../index.html#contacto" class="block rounded-md px-3 py-2 text-sm font-semibold text-amber-700 hover:bg-stone-50">Cotiza</a>
+                <a href="index.html" class="block rounded-md px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50">Portal</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="inicio" class="py-10 md:py-16">
+        <div class="mx-auto max-w-6xl px-4">
+            <div class="relative h-[480px] md:h-[600px] overflow-hidden rounded-lg">
+                <img src="../assets/images/Ampliacion.png" alt="Ampliación" class="absolute inset-0 w-full h-full object-cover -rotate-90 opacity-35">
+                <div class="absolute inset-0 flex items-center justify-center bg-stone-50/60">
+                    <h1 class="font-serif-title text-5xl md:text-7xl font-bold text-stone-900 tracking-wider">PRONTO</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido -->
+    <section class="py-16 bg-white">
+        <div class="mx-auto max-w-3xl px-4 text-center">
+            <p class="text-stone-700 text-lg">Estamos preparando un espacio para clientes y proyectos. Vuelve pronto.</p>
+            <a href="../index.html" class="mt-6 inline-block border border-stone-300 bg-white hover:bg-stone-100 text-stone-800 font-semibold py-3 px-8 rounded-lg transition">Volver al sitio</a>
+        </div>
+    </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-stone-200 bg-white py-10">
+        <div class="mx-auto max-w-6xl px-4 text-center text-stone-500 text-sm">
+            <p>&copy; <span id="year"></span> Constructora Los Almendros. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flotante -->
+    <a class="whatsapp-float" href="https://wa.me/56973542083" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Menu toggle
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+                this.setAttribute('aria-expanded', expanded);
+                menu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
