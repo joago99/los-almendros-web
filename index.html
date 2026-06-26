@@ -59,19 +59,22 @@
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
-        .hero-slide.active {
-            opacity: 1;
-        }
         @keyframes slideshow {
             0% { opacity: 0; }
-            5% { opacity: 1; }
-            33% { opacity: 1; }
-            38% { opacity: 0; }
+            2% { opacity: 1; }
+            10% { opacity: 1; }
+            12% { opacity: 0; }
             100% { opacity: 0; }
         }
-        .hero-slide:nth-child(1) { animation: slideshow 16s infinite; }
-        .hero-slide:nth-child(2) { animation: slideshow 16s infinite 4s; }
-        .hero-slide:nth-child(3) { animation: slideshow 16s infinite 8s; }
+        .hero-slide:nth-child(1) { animation: slideshow 36s infinite; }
+        .hero-slide:nth-child(2) { animation: slideshow 36s infinite 4s; }
+        .hero-slide:nth-child(3) { animation: slideshow 36s infinite 8s; }
+        .hero-slide:nth-child(4) { animation: slideshow 36s infinite 12s; }
+        .hero-slide:nth-child(5) { animation: slideshow 36s infinite 16s; }
+        .hero-slide:nth-child(6) { animation: slideshow 36s infinite 20s; }
+        .hero-slide:nth-child(7) { animation: slideshow 36s infinite 24s; }
+        .hero-slide:nth-child(8) { animation: slideshow 36s infinite 28s; }
+        .hero-slide:nth-child(9) { animation: slideshow 36s infinite 32s; }
         .whatsapp-float {
             position: fixed;
             right: 24px;
@@ -139,7 +142,7 @@
                     </div>
                     <div class="md:col-span-3">
                         <div class="hero-carousel">
-                            <div class="hero-slide active" style="background-image: url('assets/images/buin-hero.jpg');"></div>
+                            <div class="hero-slide" style="background-image: url('assets/images/buin-hero.jpg');"></div>
                             <div class="hero-slide" style="background-image: url('assets/images/buin-proyecto-1.jpg');"></div>
                             <div class="hero-slide" style="background-image: url('assets/images/buin-proyecto-3.jpg');"></div>
                             <div class="hero-slide" style="background-image: url('assets/images/Capilla San Andrés Buin.png');"></div>
