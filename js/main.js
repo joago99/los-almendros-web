@@ -1,5 +1,3 @@
-const CAROUSEL_INTERVAL = 4000;
-
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -18,19 +16,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const carousel = document.getElementById('heroCarousel');
-  if (carousel) {
-    const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
-    if (!slides.length) return;
+  if (!carousel) return;
 
-    let current = 0;
-    slides.forEach((slide, idx) => {
-      if (idx !== 0) slide.classList.add('hidden-slide');
-    });
+  const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+  if (!slides.length) return;
 
-    setInterval(() => {
-      slides[current].classList.add('hidden-slide');
+  let current = 0;
+
+  const show = (index) => {
+    slides.forEach((slide) => slide.classList.add('hidden-slide'));
+    slides[index].classList.remove('hidden-slide');
+  };
+
+  show(current);
+
+  document.getElementById('prevSlide')?.addEventListener('click', () => {
+    current = (current - 1 + slides.length) % slides.length;
+    show(current);
+  });
+
+  document.getElementById('nextSlide')?.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    show(current);
+  });
+
+  let auto = setInterval(() => {
+    current = (current + 1) % slides.length;
+    show(current);
+  }, 4000);
+
+  carousel.addEventListener('mouseenter', () => clearInterval(auto));
+  carousel.addEventListener('mouseleave', () => {
+    auto = setInterval(() => {
       current = (current + 1) % slides.length;
-      slides[current].classList.remove('hidden-slide');
-    }, CAROUSEL_INTERVAL);
-  }
+      show(current);
+    }, 4000);
+  });
 });
