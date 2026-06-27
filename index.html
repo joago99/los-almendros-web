@@ -53,23 +53,14 @@
             background: #e7e5e4;
         }
         .hero-slide {
+            display: none;
+            background-size: cover;
+            background-position: center;
             position: absolute;
             inset: 0;
-            display: none;
         }
-        .hero-slide:first-child {
-            display: block;
-        }
-        .hero-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-        .hidden-slide {
-            display: none !important;
-        }
+        .hero-slide.active { display: block; }
+        .hero-slide img { display: none; }
         @keyframes slideshow {
             0% { opacity: 0; }
             2% { opacity: 1; }
