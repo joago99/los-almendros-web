@@ -47,36 +47,44 @@
         .hero-carousel {
             position: relative;
             width: 100%;
-            height: 520px;
+            height: 480px;
             overflow: hidden;
             border-radius: 0.5rem;
             background: #e7e5e4;
         }
         .hero-slide {
             display: none;
-            background-size: cover;
-            background-position: center;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .hero-slide.active {
+            display: block;
+        }
+        .carousel-btn {
             position: absolute;
-            inset: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+            border: none;
+            background: rgba(255,255,255,0.6);
+            color: #1c1917;
+            font-size: 1.75rem;
+            font-weight: 400;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            backdrop-filter: blur(2px);
+            transition: background .2s;
+            line-height: 44px;
+            text-align: center;
+            padding: 0;
         }
-        .hero-slide.active { display: block; }
-        .hero-slide img { display: none; }
-        @keyframes slideshow {
-            0% { opacity: 0; }
-            2% { opacity: 1; }
-            10% { opacity: 1; }
-            12% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-        .hero-slide:nth-child(1) { animation: slideshow 36s infinite; }
-        .hero-slide:nth-child(2) { animation: slideshow 36s infinite 4s; }
-        .hero-slide:nth-child(3) { animation: slideshow 36s infinite 8s; }
-        .hero-slide:nth-child(4) { animation: slideshow 36s infinite 12s; }
-        .hero-slide:nth-child(5) { animation: slideshow 36s infinite 16s; }
-        .hero-slide:nth-child(6) { animation: slideshow 36s infinite 20s; }
-        .hero-slide:nth-child(7) { animation: slideshow 36s infinite 24s; }
-        .hero-slide:nth-child(8) { animation: slideshow 36s infinite 28s; }
-        .hero-slide:nth-child(9) { animation: slideshow 36s infinite 32s; }
+        .carousel-btn:hover { background: rgba(255,255,255,0.9); }
+        .carousel-btn.prev { left: 12px; }
+        .carousel-btn.next { right: 12px; }
         .whatsapp-float {
             position: fixed;
             right: 24px;
@@ -142,20 +150,20 @@
                             </a>
                         </div>
                     </div>
-                    <div class="md:col-span-3 relative">
+                    <div class="md:col-span-3 relative" style="min-height:320px">
                         <div class="hero-carousel" id="heroCarousel">
-                            <div class="hero-slide" style="background-image: url('assets/images/buin-hero.jpg');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/buin-proyecto-1.jpg');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/buin-proyecto-3.jpg');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/Capilla San Andrés Buin.png');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/Casa residencial Buin.png');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/Colegio 131 Basica Buin.png');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/Colegio San Bernardo.png');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/Colegio san fernando oriente Buin.png');"></div>
-                            <div class="hero-slide" style="background-image: url('assets/images/Ampliacion.png');"></div>
+                            <img src="assets/images/buin-hero.jpg" alt="" class="hero-slide active">
+                            <img src="assets/images/buin-proyecto-1.jpg" alt="" class="hero-slide">
+                            <img src="assets/images/buin-proyecto-3.jpg" alt="" class="hero-slide">
+                            <img src="assets/images/Capilla San Andrés Buin.png" alt="" class="hero-slide">
+                            <img src="assets/images/Casa residencial Buin.png" alt="" class="hero-slide">
+                            <img src="assets/images/Colegio 131 Basica Buin.png" alt="" class="hero-slide">
+                            <img src="assets/images/Colegio San Bernardo.png" alt="" class="hero-slide">
+                            <img src="assets/images/Colegio san fernando oriente Buin.png" alt="" class="hero-slide">
+                            <img src="assets/images/Ampliacion.png" alt="" class="hero-slide">
                         </div>
-                        <button id="prevSlide" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white text-stone-900 shadow border border-stone-200 px-3 py-2" aria-label="Anterior">‹</button>
-                        <button id="nextSlide" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 hover:bg-white text-stone-900 shadow border border-stone-200 px-3 py-2" aria-label="Siguiente">›</button>
+                        <button class="carousel-btn prev" id="prevSlide">‹</button>
+                        <button class="carousel-btn next" id="nextSlide">›</button>
                     </div>
                 </div>
             </div>
