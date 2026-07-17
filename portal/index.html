@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Los Almendros</title>
+    <title>Portal Clientes — Constructora Los Almendros</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/tokens.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -59,23 +59,31 @@
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero / acceso portal -->
     <section id="inicio" class="py-10 md:py-16">
         <div class="mx-auto max-w-6xl px-4">
-            <div class="relative h-[480px] md:h-[600px] overflow-hidden rounded-lg">
-                <img src="../assets/images/Ampliacion.png" alt="Ampliación" class="absolute inset-0 w-full h-full object-cover -rotate-90 opacity-35">
-                <div class="absolute inset-0 flex items-center justify-center bg-stone-50/60">
-                    <h1 class="font-serif-title text-5xl md:text-7xl font-bold text-stone-900 tracking-wider">PRONTO</h1>
+            <div class="rounded-lg overflow-hidden shadow-md mb-10">
+                <img src="../assets/images/Ampliacion.png" alt="Ampliación" class="w-full h-64 md:h-96 object-cover">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <div>
+                    <h1 class="font-serif-title text-3xl md:text-4xl font-bold text-stone-900 mb-4">Portal de clientes</h1>
+                    <p class="text-stone-700 mb-4">Acceso informado para proyectos activos: avances, documentos y seguimiento.</p>
+                    <p class="text-stone-700 mb-6">Si ya estás trabajando con nosotros, escribinos por WhatsApp para coordinar el acceso.</p>
+                    <a href="https://wa.me/56973542083" target="_blank" rel="noopener" class="inline-block bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-lg transition">Pedir acceso por WhatsApp</a>
+                </div>
+                <div class="bg-white border border-stone-200 rounded-lg p-6 shadow-sm">
+                    <h2 class="text-xl font-bold text-stone-900 mb-3">¿Qué incluye?</h2>
+                    <ul class="space-y-2 text-stone-700 text-sm">
+                        <li>• Seguimiento de avance de obra</li>
+                        <li>• Documentos por etapa</li>
+                        <li>• Canal directo con obra y oficina técnica</li>
+                        <li>• Alertas útiles sin letra chica</li>
+                    </ul>
+                    <p class="mt-4 text-stone-600 text-sm">Próximamente: acceso con código de proyecto. Hoy activamos tu ingreso por WhatsApp para mantener trazabilidad.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Contenido -->
-    <section class="py-16 bg-white">
-        <div class="mx-auto max-w-3xl px-4 text-center">
-            <p class="text-stone-700 text-lg">Estamos preparando un espacio para clientes y proyectos. Vuelve pronto.</p>
-            <a href="../index.html" class="mt-6 inline-block border border-stone-300 bg-white hover:bg-stone-100 text-stone-800 font-semibold py-3 px-8 rounded-lg transition">Volver al sitio</a>
         </div>
     </section>
     </main>
@@ -94,17 +102,6 @@
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Menu toggle
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
-        if (toggle && menu) {
-            toggle.addEventListener('click', function() {
-                const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
-                this.setAttribute('aria-expanded', expanded);
-                menu.classList.toggle('hidden');
-            });
-        }
     </script>
 </body>
 </html>

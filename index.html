@@ -1,329 +1,703 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructora Los Almendros | Calidad y confianza en Buin</title>
-    <meta name="description" content="Constructora familiar en Buin: proyectos residenciales, institucionales y ampliaciones. Diseño, construcción y trámites con equipo local.">
-    <link rel="canonical" href="https://www.constructoralosalmendros.cl/">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/tokens.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap');
-        .font-serif-title {
-            font-family: 'Playfair Display', Georgia, "Times New Roman", Times, serif;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Constructora Los Almendros | Calidad y confianza en Buin</title>
+  <meta name="description" content="Constructora familiar en Buin: arquitectura, construcción y regularización. Proyectos en RM, Valparaíso y O'Higgins.">
+  <link rel="canonical" href="https://constructoralosalmendros.cl/">
+  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-ink: #111111;
+      --color-muted: #444444;
+      --color-paper: #ffffff;
+      --color-surface: #ffffff;
+      --color-accent: #b45309;
+      --color-accent-soft: #f6f1e7;
+      --color-border: #e5e5e5;
+      --color-grid: #e5e5e5;
+      --shadow-card: 0 10px 30px rgba(15,23,42,0.08);
+      --transition: 220ms ease-in-out;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      color: #333;
+      background: #fff;
+    }
+    .font-serif-title {
+      font-family: 'Playfair Display', Georgia, "Times New Roman", Times, serif;
+    }
+    .skip-link {
+      position:absolute; top:-100%; left:1rem; z-index:10000; padding:.5rem .75rem; background:#0f172a; color:#fff; border-radius:0 0 .5rem .5rem;
+    }
+    .skip-link:focus { top:0; }
+    .carousel-btn {
+      position:absolute; top:50%; transform:translateY(-50%); z-index:5;
+      width:44px; height:44px; border-radius:50%;
+      background:rgba(255,255,255,0.72); backdrop-filter: blur(4px);
+      border:1px solid rgba(0,0,0,0.08);
+      color:#111; font-size:1.75rem;
+      cursor:pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .carousel-btn:hover {
+      background:rgba(255,255,255,0.95);
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .carousel-dots { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:10px; z-index:10; }
+    .carousel-dot {
+      width:10px; height:10px; border-radius:9999px;
+      background:rgba(255,255,255,0.7); border:1px solid rgba(0,0,0,0.18); cursor:pointer;
+      transition: all 0.25s ease;
+    }
+    .carousel-dot[aria-selected="true"] {
+      background:#111; border-color:#111;
+      transform: scale(1.2);
+    }
+    .hero-carousel { position:relative; width:100%; height:520px; overflow:hidden; border-radius:16px; background:#e7e5e4; }
+    .hero-slide { display:none; width:100%; height:100%; object-fit:cover; object-position:center; transition: opacity 0.6s ease-in-out; }
+    .hero-slide.active { display:block; animation: fadeIn 0.6s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(1.02); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .fade-in { opacity:0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity:1; transform:none; }
+
+    /* Animated buttons */
+    .btn-animated {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-animated::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+    .btn-animated:hover::after {
+      width: 300px;
+      height: 300px;
+    }
+    .btn-animated:active {
+      transform: scale(0.95);
+    }
+
+    .btn-ghost {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .btn-ghost::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
+      transition: left 0.6s ease;
+    }
+    .btn-ghost:hover::before {
+      left: 100%;
+    }
+
+    /* Project card animations */
+    .project-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    .project-card .card-image {
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card:hover .card-image {
+      transform: scale(1.05);
+    }
+
+    /* Service card animations */
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+    .service-card .icon-wrapper {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover .icon-wrapper {
+      transform: scale(1.15);
+    }
+
+    /* Form input animations */
+    .form-input {
+      transition: all 0.2s ease;
+    }
+    .form-input:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* WhatsApp button animation */
+    .whatsapp-float {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-6px) scale(1.1);
+    }
+
+    /* Fade in animation for sections */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.7s ease forwards;
+    }
+
+    /* Stagger animation for children */
+    .stagger-children > * {
+      opacity: 0;
+      animation: slideUp 0.6s ease forwards;
+    }
+    .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+    .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+    .stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+    .stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+    .stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+    .stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          }
         }
-        html {
-            scroll-behavior: smooth;
-        }
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 1rem;
-            z-index: 10000;
-            padding: 0.5rem 0.75rem;
-            background: #0f172a;
-            color: #fff;
-            border-radius: 0 0 0.5rem 0.5rem;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-        .hero-carousel {
-            position: relative;
-            width: 100%;
-            height: 480px;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            background: #e7e5e4;
-        }
-        .hero-slide {
-            display: none;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-        .hero-slide.active {
-            display: block;
-        }
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 5;
-            border: none;
-            background: rgba(255,255,255,0.6);
-            color: #1c1917;
-            font-size: 1.75rem;
-            font-weight: 400;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            cursor: pointer;
-            backdrop-filter: blur(2px);
-            transition: background .2s;
-            line-height: 44px;
-            text-align: center;
-            padding: 0;
-        }
-        .carousel-btn:hover { background: rgba(255,255,255,0.9); }
-        .carousel-btn.prev { left: 12px; }
-        .carousel-btn.next { right: 12px; }
-        .whatsapp-float {
-            position: fixed;
-            right: 24px;
-            bottom: 24px;
-            z-index: 999;
-            transform: translateY(0);
-            transition: transform .2s ease-in-out;
-        }
-        .whatsapp-float:hover {
-            transform: translateY(-4px);
-        }
-        .whatsapp-float img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            box-shadow: 0 6px 18px rgba(0,0,0,.25);
-            background: #25D366;
-            padding: 6px;
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
-<body class="font-sans text-slate-600 antialiased bg-stone-50">
-    <a href="#main-content" class="skip-link">Saltar al contenido</a>
-    <main id="main-content">
+<body class="antialiased">
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
+  <main id="main-content">
     <!-- Header -->
-    <header class="border-b border-stone-200/80 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div class="mx-auto max-w-6xl px-4">
-            <div class="flex items-center justify-between h-16">
-                <a href="#inicio" class="font-serif-title text-xl md:text-2xl font-bold text-stone-900">Constructora Los Almendros</a>
-                <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
-                    <a href="#proyectos" class="text-sm font-medium text-stone-700 hover:text-stone-900 transition">Proyectos</a>
-                    <a href="#servicios" class="text-sm font-medium text-stone-700 hover:text-stone-900 transition">Servicios</a>
-                    <a href="#contacto" class="inline-flex items-center justify-center rounded-lg bg-amber-700 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-800 transition">Cotiza</a>
-                    <a href="https://portal.constructoralosalmendros.cl" class="inline-flex items-center justify-center rounded-lg border border-stone-300 bg-white px-4 py-2 text-sm font-semibold text-stone-800 hover:bg-stone-100 transition" target="_blank">Portal Clientes →</a>
-                </nav>
-                <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-stone-700 hover:bg-stone-100 transition" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
-                    <svg class="size-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                </button>
-            </div>
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200/80">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex items-center justify-between h-16">
+          <a href="#inicio" class="font-serif-title text-xl md:text-2xl font-bold tracking-tight text-stone-900 hover:text-stone-700 transition">Constructora Los Almendros</a>
+          <nav class="hidden md:flex items-center gap-8" aria-label="Principal">
+            <a href="#proyectos" class="btn-ghost text-sm font-medium text-stone-700 hover:text-stone-900 transition px-3 py-2">Proyectos</a>
+            <a href="#servicios" class="btn-ghost text-sm font-medium text-stone-700 hover:text-stone-900 transition px-3 py-2">Servicios</a>
+            <a href="#nosotros" class="btn-ghost text-sm font-medium text-stone-700 hover:text-stone-900 transition px-3 py-2">Nosotros</a>
+            <a href="#contacto" class="inline-flex items-center justify-center rounded-full bg-stone-900 text-white px-5 py-2 text-sm font-medium hover:bg-stone-800 transition btn-animated">Cotiza</a>
+            <a href="https://portal.constructoralosalmendros.cl" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full border border-stone-900 text-stone-900 px-5 py-2 text-sm font-medium hover:bg-stone-900 hover:text-white transition btn-ghost">Portal clientes</a>
+          </nav>
+          <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-stone-700 hover:bg-stone-100 transition" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden border-t border-stone-200/80 bg-white">
-            <div class="mx-auto max-w-6xl px-4 py-3 space-y-1">
-                <a href="#proyectos" class="block rounded-md px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50">Proyectos</a>
-                <a href="#servicios" class="block rounded-md px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50">Servicios</a>
-                <a href="#contacto" class="block rounded-md px-3 py-2 text-sm font-semibold text-amber-700 hover:bg-stone-50">Cotiza</a>
-                <a href="https://portal.constructoralosalmendros.cl" class="block rounded-md px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50" target="_blank">Portal Clientes</a>
-            </div>
-        </div>
+      </div>
     </header>
 
-    <!-- Contenido principal -->
-    <div>
-        <!-- Hero -->
-        <section id="inicio" class="py-10 md:py-16">
-            <div class="mx-auto max-w-6xl px-4">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 items-center">
-                    <div class="md:col-span-1 flex items-center">
-                        <div>
-                            <h1 class="text-4xl md:text-5xl font-serif-title font-bold text-slate-800 mb-4">Construimos Confianza</h1>
-                            <p class="text-xl md:text-2xl mb-8 text-slate-600">Calidad, confianza y diseño a tu medida</p>
-                            <a href="#contacto" class="inline-block bg-amber-700 hover:bg-amber-800 text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
-                                Cotiza tu proyecto
-                            </a>
-                        </div>
-                    </div>
-                    <div class="md:col-span-3 relative" style="min-height:320px">
-                        <div class="hero-carousel" id="heroCarousel">
-                            <img src="assets/images/buin-hero.jpg" alt="" class="hero-slide active">
-                            <img src="assets/images/buin-proyecto-1.jpg" alt="" class="hero-slide">
-                            <img src="assets/images/buin-proyecto-3.jpg" alt="" class="hero-slide">
-                            <img src="assets/images/Capilla San Andrés Buin.png" alt="" class="hero-slide">
-                            <img src="assets/images/Casa residencial Buin.png" alt="" class="hero-slide">
-                            <img src="assets/images/Colegio 131 Basica Buin.png" alt="" class="hero-slide">
-                            <img src="assets/images/Colegio San Bernardo.png" alt="" class="hero-slide">
-                            <img src="assets/images/Colegio san fernando oriente Buin.png" alt="" class="hero-slide">
-                            <img src="assets/images/Ampliacion.png" alt="" class="hero-slide">
-                        </div>
-                        <button class="carousel-btn prev" id="prevSlide">‹</button>
-                        <button class="carousel-btn next" id="nextSlide">›</button>
-                    </div>
-                </div>
+    <!-- Hero -->
+    <section id="inicio" class="py-10 md:py-16 lg:py-20">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+          <div class="md:col-span-4 fade-in">
+            <p class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-4">Constructora familiar en Buin</p>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif-title font-bold tracking-tight leading-[1.05] text-stone-900">Construimos Confianza</h1>
+            <p class="mt-6 text-lg md:text-xl text-stone-600 leading-relaxed">Calidad, confianza y diseño a tu medida. Obras en Buin y zonas aledañas.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#contacto" class="inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 text-white px-8 py-3.5 text-sm font-semibold hover:bg-stone-800 shadow-lg shadow-stone-900/20 hover:shadow-xl hover:shadow-stone-900/30 transition-all duration-300 btn-animated">
+                Cotiza tu proyecto
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </a>
+              <a href="#proyectos" class="inline-flex items-center justify-center rounded-full border border-stone-300 text-stone-800 px-8 py-3.5 text-sm font-semibold hover:border-stone-900 hover:text-stone-900 transition-all duration-300 btn-ghost">
+                Ver proyectos
+              </a>
+              <a href="https://portal.constructoralosalmendros.cl" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-full border border-stone-900 text-stone-900 px-8 py-3.5 text-sm font-semibold hover:bg-stone-900 hover:text-white transition-all duration-300 btn-ghost">
+                Portal clientes
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+              </a>
             </div>
-        </section>
+          </div>
+          <div class="md:col-span-8 relative fade-in" style="min-height:360px">
+            <div class="hero-carousel" id="heroCarousel" aria-label="Carrusel de proyectos">
+              <img src="assets/images/buin-hero.jpg" alt="Obra en Buin" class="hero-slide active">
+              <img src="assets/images/buin-proyecto-1.jpg" alt="Casa Familiar" class="hero-slide">
+              <img src="assets/images/buin-proyecto-3.jpg" alt="Proyecto residencial" class="hero-slide">
+              <img src="assets/images/Casa residencial Buin.png" alt="Casa residencial Buin" class="hero-slide">
+            </div>
+            <button class="carousel-btn prev" id="prevSlide" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" id="nextSlide" aria-label="Siguiente">›</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Proyectos -->
-        <section id="proyectos" class="py-16 bg-[#f5f5f4]">
-            <div class="mx-auto max-w-6xl px-4">
-                <div class="text-center mb-12">
-                    <div class="text-sm font-medium text-amber-700 tracking-wide uppercase program-title">Proyectos</div>
-                    <h2 class="mt-2 program-title text-3xl md:text-4xl font-bold text-stone-900">Trabajos realizados</h2>
-                    <p class="mt-3 text-stone-600">Selección de obras en Buin y zonas aledañas.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <article class="overflow-hidden rounded-lg bg-white shadow-md">
-                        <img src="assets/images/buin-proyecto-1.jpg" alt="Casa Familiar" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Casa Familiar</h3>
-                            <p class="text-slate-600">Vivienda unifamiliar en Buin.</p>
-                        </div>
-                    </article>
-                    <article class="overflow-hidden rounded-lg bg-white shadow-md">
-                        <img src="assets/images/Ampliacion.png" alt="Ampliación" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Ampliación</h3>
-                            <p class="text-slate-600">Ampliación de obra existente.</p>
-                        </div>
-                    </article>
-                    <article class="overflow-hidden rounded-lg bg-white shadow-md">
-                        <img src="assets/images/Capilla San Andrés Buin.png" alt="Capilla San Andrés Buin" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Capilla San Andrés Buin</h3>
-                            <p class="text-slate-600">Construcción y acondicionamiento en Buin.</p>
-                        </div>
-                    </article>
-                    <article class="overflow-hidden rounded-lg bg-white shadow-md">
-                        <img src="assets/images/Colegio 131 Basica Buin.png" alt="Colegio 131 Básica Buin" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Colegio 131 Básica Buin</h3>
-                            <p class="text-slate-600">Proyecto institucional en Buin.</p>
-                        </div>
-                    </article>
-                    <article class="overflow-hidden rounded-lg bg-white shadow-md">
-                        <img src="assets/images/Colegio San Bernardo.png" alt="Colegio San Bernardo" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Colegio San Bernardo</h3>
-                            <p class="text-slate-600">Obra educativa en San Bernardo.</p>
-                        </div>
-                    </article>
-                    <article class="overflow-hidden rounded-lg bg-white shadow-md">
-                        <img src="assets/images/Colegio san fernando oriente Buin.png" alt="Colegio San Fernando Oriente" class="w-full h-64 object-cover">
-                        <div class="p-6 bg-white">
-                            <h3 class="text-xl font-serif-title font-bold text-slate-800 mb-2">Colegio San Fernando Oriente</h3>
-                            <p class="text-slate-600">Proyecto institucional en Buin.</p>
-                        </div>
-                    </article>
-                </div>
+    <!-- Stats strip -->
+    <section class="py-8 border-y border-stone-200 bg-stone-50/40">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="fade-in">
+            <p class="text-3xl font-bold text-stone-900 tracking-tight">10+</p>
+            <p class="text-sm text-stone-600 mt-1">Años de experiencia</p>
+          </div>
+          <div class="fade-in">
+            <p class="text-3xl font-bold text-stone-900 tracking-tight">50+</p>
+            <p class="text-sm text-stone-600 mt-1">Proyectos realizados</p>
+          </div>
+          <div class="fade-in">
+            <p class="text-3xl font-bold text-stone-900 tracking-tight">3</p>
+            <p class="text-sm text-stone-600 mt-1">Regiones atendidas</p>
+          </div>
+          <div class="fade-in">
+            <p class="text-3xl font-bold text-stone-900 tracking-tight">100%</p>
+            <p class="text-sm text-stone-600 mt-1">Compromiso y calidad</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="py-20 md:py-24 bg-white">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="max-w-2xl fade-in">
+          <p class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Portafolio</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900">Trabajos realizados</h2>
+          <p class="mt-4 text-stone-600 leading-relaxed">Selección de obras en Buin y zonas aledañas. Incluye arquitectura, construcción y regularización.</p>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          <article class="group project-card rounded-2xl bg-white border border-stone-200 overflow-hidden">
+            <div class="overflow-hidden">
+              <img src="assets/images/buin-proyecto-1.jpg" alt="Casa Familiar" class="card-image w-full h-64 object-cover">
             </div>
-        </section>
-    </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wide">Vivienda</span>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight text-stone-900">Casa Familiar</h3>
+              <p class="text-stone-600 mt-2 text-sm leading-relaxed">Vivienda unifamiliar en Buin.</p>
+              <a href="#contacto" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-stone-900 hover:text-stone-700 transition">
+                Más info
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+          <article class="group project-card rounded-2xl bg-white border border-stone-200 overflow-hidden">
+            <div class="overflow-hidden">
+              <img src="assets/images/Ampliacion.png" alt="Ampliación" class="card-image w-full h-64 object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wide">Ampliación</span>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight text-stone-900">Ampliación</h3>
+              <p class="text-stone-600 mt-2 text-sm leading-relaxed">Ampliación de obra existente.</p>
+              <a href="#contacto" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-stone-900 hover:text-stone-700 transition">
+                Más info
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+          <article class="group project-card rounded-2xl bg-white border border-stone-200 overflow-hidden">
+            <div class="overflow-hidden">
+              <img src="assets/images/Capilla San Andrés Buin.png" alt="Capilla San Andrés Buin" class="card-image w-full h-64 object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wide">Institucional</span>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight text-stone-900">Capilla San Andrés Buin</h3>
+              <p class="text-stone-600 mt-2 text-sm leading-relaxed">Construcción y acondicionamiento en Buin.</p>
+              <a href="#contacto" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-stone-900 hover:text-stone-700 transition">
+                Más info
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+          <article class="group project-card rounded-2xl bg-white border border-stone-200 overflow-hidden">
+            <div class="overflow-hidden">
+              <img src="assets/images/Colegio 131 Basica Buin.png" alt="Colegio 131 Básica Buin" class="card-image w-full h-64 object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wide">Educacional</span>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight text-stone-900">Colegio 131 Básica Buin</h3>
+              <p class="text-stone-600 mt-2 text-sm leading-relaxed">Proyecto institucional en Buin.</p>
+              <a href="#contacto" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-stone-900 hover:text-stone-700 transition">
+                Más info
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+          <article class="group project-card rounded-2xl bg-white border border-stone-200 overflow-hidden">
+            <div class="overflow-hidden">
+              <img src="assets/images/Colegio San Bernardo.png" alt="Colegio San Bernardo" class="card-image w-full h-64 object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wide">Educacional</span>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight text-stone-900">Colegio San Bernardo</h3>
+              <p class="text-stone-600 mt-2 text-sm leading-relaxed">Obra educativa en San Bernardo.</p>
+              <a href="#contacto" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-stone-900 hover:text-stone-700 transition">
+                Más info
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+          <article class="group project-card rounded-2xl bg-white border border-stone-200 overflow-hidden">
+            <div class="overflow-hidden">
+              <img src="assets/images/Colegio san fernando oriente Buin.png" alt="Colegio San Fernando Oriente" class="card-image w-full h-64 object-cover">
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-stone-900"></span>
+                <span class="text-xs font-medium text-stone-500 uppercase tracking-wide">Institucional</span>
+              </div>
+              <h3 class="text-xl font-bold tracking-tight text-stone-900">Colegio San Fernando Oriente</h3>
+              <p class="text-stone-600 mt-2 text-sm leading-relaxed">Proyecto institucional en Buin.</p>
+              <a href="#contacto" class="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-stone-900 hover:text-stone-700 transition">
+                Más info
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!-- Servicios -->
-    <section id="servicios" class="py-16 bg-white">
-        <div class="mx-auto max-w-6xl px-4">
-            <div class="text-center mb-12">
-                <div class="text-sm font-medium text-amber-700 tracking-wide uppercase">Servicios</div>
-                <h2 class="mt-2 text-3xl md:text-4xl font-bold text-stone-900">Qué hacemos</h2>
-                <p class="mt-3 text-stone-600">Diseño, construcción y tramitología.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="rounded-xl border border-stone-200 bg-stone-50 p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-stone-900">Arquitectura</h3>
-                    <p class="mt-2 text-stone-700 text-sm leading-relaxed">Anteproyecto, diseño y planificación.</p>
-                </div>
-                <div class="rounded-xl border border-stone-200 bg-stone-50 p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-stone-900">Construcción</h3>
-                    <p class="mt-2 text-stone-700 text-sm leading-relaxed">Obra nueva, ampliación y remodelación.</p>
-                </div>
-                <div class="rounded-xl border border-stone-200 bg-stone-50 p-6 hover:shadow-lg transition">
-                    <h3 class="text-lg font-bold text-stone-900">Regularización</h3>
-                    <p class="mt-2 text-stone-700 text-sm leading-relaxed">Permisos, licencias y cumplimiento.</p>
-                </div>
-            </div>
+    <section id="servicios" class="py-20 md:py-24 bg-stone-50/60">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="max-w-2xl fade-in">
+          <p class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Servicios</p>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900">Qué hacemos</h2>
+          <p class="mt-4 text-stone-600 leading-relaxed">Diseño, construcción y tramitología.</p>
         </div>
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+          <div class="service-card rounded-2xl bg-white border border-stone-200 p-8">
+            <div class="icon-wrapper inline-flex items-center justify-center w-12 h-12 rounded-full bg-stone-100 mb-5">
+              <svg class="w-6 h-6 text-stone-900" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-label="Arquitectura"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900">Arquitectura</h3>
+            <p class="mt-3 text-stone-600 text-sm leading-relaxed">Anteproyecto, diseño y planificación.</p>
+            <a href="#contacto" class="btn-ghost inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-stone-900">
+              Consultar
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="service-card rounded-2xl bg-white border border-stone-200 p-8">
+            <div class="icon-wrapper inline-flex items-center justify-center w-12 h-12 rounded-full bg-stone-100 mb-5">
+              <svg class="w-6 h-6 text-stone-900" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-label="Construcción"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900">Construcción</h3>
+            <p class="mt-3 text-stone-600 text-sm leading-relaxed">Obra nueva, ampliación y remodelación.</p>
+            <a href="#contacto" class="btn-ghost inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-stone-900">
+              Consultar
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="service-card rounded-2xl bg-white border border-stone-200 p-8">
+            <div class="icon-wrapper inline-flex items-center justify-center w-12 h-12 rounded-full bg-stone-100 mb-5">
+              <svg class="w-6 h-6 text-stone-900" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-label="Regularización"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.943 8.943 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A9.969 9.969 0 0 1 6 18c2.031 0 3.84-.924 5-2.346m0 0A8.967 8.967 0 0 1 12 15c1.81 0 3.48-.48 5-1.308"/></svg>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900">Regularización</h3>
+            <p class="mt-3 text-stone-600 text-sm leading-relaxed">Permisos, licencias y cumplimiento.</p>
+            <a href="#contacto" class="btn-ghost inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-stone-900">
+              Consultar
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Nosotros -->
-    <section id="nosotros" class="py-16 bg-[#f5f5f4]">
-        <div class="mx-auto max-w-6xl px-4">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-stone-900 mb-6 font-serif-title">Sobre Nosotros</h2>
-                    <p class="text-stone-700 mb-4">Constructora familiar con sede en Buin. Combinamos experiencia local y compromiso.</p>
-                    <p class="text-stone-700">Atención cercana, presupuestos claros y cumplimiento.</p>
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="assets/images/Casa residencial Buin.png" alt="Proyecto residencial Buin" class="w-full h-64 md:h-80 object-cover">
-                </div>
+    <section id="nosotros" class="py-20 md:py-24 bg-white">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="fade-in">
+            <p class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Nosotros</p>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900">Sobre Nosotros</h2>
+            <p class="mt-5 text-stone-700 leading-relaxed">Constructora familiar con sede en Buin. Combinamos experiencia local y compromiso.</p>
+            <p class="mt-3 text-stone-700 leading-relaxed">Atención cercana, presupuestos claros y cumplimiento.</p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#contacto" class="inline-flex items-center justify-center gap-2 rounded-full bg-stone-900 text-white px-7 py-3.5 text-sm font-semibold hover:bg-stone-800 shadow-lg shadow-stone-900/20 transition-all duration-300 btn-animated">
+                Habla con nosotros
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.77 9.77 0 0 1-2.5-.29L3 21l1.3-4.2C3.4 15.6 3 13.8 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </a>
             </div>
+          </div>
+          <div class="overflow-hidden rounded-2xl border border-stone-200 shadow-sm">
+            <img src="assets/images/Casa residencial Buin.png" alt="Proyecto residencial Buin" class="w-full h-72 md:h-[420px] object-cover">
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Contacto / Cotiza -->
-    <section id="contacto" class="py-16 bg-white">
-        <div class="mx-auto max-w-3xl px-4">
-            <div class="text-center mb-10">
-                <div class="text-sm font-medium text-amber-700 tracking-wide uppercase">Cotiza</div>
-                <h2 class="mt-2 text-3xl md:text-4xl font-bold text-stone-900">Cuéntanos tu proyecto</h2>
-                <p class="mt-3 text-stone-600">Datos claros = respuesta rápida.</p>
+    <!-- Contacto -->
+    <section id="contacto" class="py-20 md:py-24 bg-stone-50/60">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="grid md:grid-cols-2 gap-10 lg:gap-14">
+          <div class="fade-in">
+            <p class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Cotiza</p>
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-stone-900">Cuéntanos tu proyecto</h2>
+            <p class="mt-4 text-stone-600 leading-relaxed">Datos claros = respuesta rápida.</p>
+            <div class="mt-8 rounded-2xl bg-white border border-stone-200 p-6 md:p-8 shadow-sm">
+              <p class="font-semibold text-stone-900">¿Qué incluir en tu solicitud?</p>
+              <ul class="mt-4 space-y-3 text-sm text-stone-700">
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-stone-900 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  <span>Nombre y WhatsApp</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-stone-900 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  <span>Tipo de servicio: arquitectura / construcción / regularización</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-stone-900 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  <span>Avance actual del proyecto</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-5 h-5 text-stone-900 mt-0.5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+                  <span>Comuna y superficie estimada</span>
+                </li>
+              </ul>
             </div>
-            <div class="aspect-[9/16] md:aspect-auto md:h-[720px] w-full">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfK-8RQ_4mqlzP1stTzbgs-BtjPbF144khsOYBvD5CdYDmSsg/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" class="rounded-lg border border-stone-200 shadow-sm">Cargando…</iframe>
-            </div>
+          </div>
+          <div>
+            <form onsubmit="handleSubmit(event)" class="rounded-2xl bg-white border border-stone-200 p-6 md:p-8 shadow-sm">
+              <div class="space-y-5">
+                <div>
+                  <label class="block text-sm font-medium text-stone-900 mb-1.5">Nombre completo *</label>
+                  <input type="text" name="name" required class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5" placeholder="Tu nombre">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-stone-900 mb-1.5">Correo electrónico *</label>
+                    <input type="email" name="email" required class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5" placeholder="email@ejemplo.cl">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-stone-900 mb-1.5">WhatsApp *</label>
+                    <input type="tel" name="whatsapp" required class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5" placeholder="+56 9 1234 5678">
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-stone-900 mb-1.5">Servicio *</label>
+                    <select name="service" required class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5">
+                      <option value="">Selecciona</option>
+                      <option>Arquitectura</option>
+                      <option>Construcción</option>
+                      <option>Regularización</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-stone-900 mb-1.5">Avance del proyecto</label>
+                    <select name="progress" class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5">
+                      <option value="">Selecciona</option>
+                      <option>Solo idea</option>
+                      <option>Diseño</option>
+                      <option>Licencia</option>
+                      <option>En ejecución</option>
+                      <option>Regularizar</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-sm font-medium text-stone-900 mb-1.5">Comuna</label>
+                    <input type="text" name="city" class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5" placeholder="Ej: Buin">
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-stone-900 mb-1.5">Superficie m²</label>
+                    <input type="number" name="area" class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5" placeholder="80">
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-stone-900 mb-1.5">Detalle del proyecto</label>
+                  <textarea name="detail" rows="4" class="form-input w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm focus:outline-none focus:border-stone-900 focus:ring-2 focus:ring-stone-900/5" placeholder="Describe tu proyecto..."></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="w-full rounded-full bg-stone-900 text-white px-8 py-4 text-sm font-semibold hover:bg-stone-800 shadow-lg shadow-stone-900/20 hover:shadow-xl hover:shadow-stone-900/30 transition-all duration-300 btn-animated flex items-center justify-center gap-2">
+                  <span id="btnText">Enviar solicitud</span>
+                  <svg id="btnArrow" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-stone-200 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-2xl font-serif-title font-bold tracking-tight text-stone-900">Constructora Los Almendros</h3>
+          <p class="text-stone-600 text-sm mt-2">Constructora familiar en Buin.</p>
+          <div class="mt-5 flex gap-5">
+            <a href="https://www.linkedin.com/company/losalmendros" target="_blank" rel="noopener" class="text-sm font-medium text-stone-700 hover:text-stone-900 transition">LinkedIn</a>
+            <a href="https://wa.me/56973542083" target="_blank" rel="noopener" class="text-sm font-medium text-stone-700 hover:text-stone-900 transition">WhatsApp</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-base font-semibold text-stone-900">Enlaces</h4>
+          <ul class="mt-3 space-y-2.5">
+            <li><a href="#proyectos" class="text-sm text-stone-700 hover:text-stone-900 transition">Proyectos</a></li>
+            <li><a href="#servicios" class="text-sm text-stone-700 hover:text-stone-900 transition">Servicios</a></li>
+            <li><a href="#contacto" class="text-sm text-stone-700 hover:text-stone-900 transition">Cotiza</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-base font-semibold text-stone-900">Recursos</h4>
+          <ul class="mt-3 space-y-2.5">
+            <li><a href="/llms.txt" class="text-sm text-stone-700 hover:text-stone-900 transition">LLMs.txt</a></li>
+            <li><a href="/sitemap.xml" class="text-sm text-stone-700 hover:text-stone-900 transition">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-stone-200 mt-10 pt-8 text-center text-stone-500 text-sm">
+        <p>&copy; <span id="year"></span> Constructora Los Almendros. Todos los derechos reservados.</p>
+      </div>
     </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="border-t border-stone-200 bg-white py-10">
-        <div class="mx-auto max-w-6xl px-4">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-2xl font-serif-title font-bold text-stone-900 mb-3">Constructora Los Almendros</h3>
-                    <p class="text-stone-600 text-sm">Constructora familiar en Buin.</p>
-                    <div class="mt-4 flex gap-4">
-                        <a href="#" class="text-sm text-stone-700 hover:text-stone-900">Facebook</a>
-                        <a href="#" class="text-sm text-stone-700 hover:text-stone-900">Instagram</a>
-                        <a href="https://www.linkedin.com/company/losalmendros" target="_blank" rel="noopener" class="text-sm text-stone-700 hover:text-stone-900">LinkedIn</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-base font-semibold text-stone-900 mb-3">Enlaces</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#proyectos" class="text-sm text-stone-700 hover:text-stone-900">Proyectos</a></li>
-                        <li><a href="#servicios" class="text-sm text-stone-700 hover:text-stone-900">Servicios</a></li>
-                        <li><a href="#contacto" class="text-sm text-stone-700 hover:text-stone-900">Cotiza</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-base font-semibold text-stone-900 mb-3">Contacto</h4>
-                    <p class="text-sm text-stone-700">📍 Chile</p>
-                    <p class="text-sm text-stone-700">📞 +56 9 7354 2083</p>
-                    <p class="text-sm text-stone-700">✉️ contacto@constructoralosalmendros.cl</p>
-                </div>
-            </div>
-            <div class="border-t border-stone-200 mt-8 pt-8 text-center text-stone-500 text-sm">
-                <p>&copy; <span id="year"></span> Constructora Los Almendros. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Floating WhatsApp -->
+  <a class="whatsapp-float fixed right-5 bottom-5 z-50" href="https://wa.me/56973542083" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="w-14 h-14 rounded-full bg-[#25D366] p-2 shadow-xl">
+  </a>
 
-    <!-- WhatsApp flotante -->
-    <a class="whatsapp-float" href="https://wa.me/56973542083" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-    </a>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        const expanded = this.getAttribute('aria-expanded') === 'true' ? false : true;
+        this.setAttribute('aria-expanded', expanded);
+        menu.classList.toggle('hidden');
+      });
+    }
+    const slides = Array.from(document.querySelectorAll('.hero-slide'));
+    let current = slides.findIndex(s => s.classList.contains('active'));
+    if (current === -1) { current = 0; slides[0].classList.add('active'); }
+    const dotsContainer = document.getElementById('carouselDots');
+    const dots = [];
+    if (dotsContainer) {
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Ir a imagen ${idx + 1}`);
+        dot.setAttribute('aria-selected', idx === current ? 'true' : 'false');
+        dot.addEventListener('click', () => goTo(idx));
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+      });
+    }
+    const goTo = (i) => {
+      slides.forEach(s => s.classList.remove('active'));
+      if (dots[i]) dots[i].setAttribute('aria-selected', 'true');
+      slides[i].classList.add('active');
+      current = i;
+    };
+    const next = () => goTo((current + 1) % slides.length);
+    const prev = () => goTo((current - 1 + slides.length) % slides.length);
+    document.getElementById('prevSlide')?.addEventListener('click', prev);
+    document.getElementById('nextSlide')?.addEventListener('click', next);
+    let auto = setInterval(next, 4500);
+    document.getElementById('heroCarousel')?.addEventListener('mouseenter', () => clearInterval(auto));
+    document.getElementById('heroCarousel')?.addEventListener('mouseleave', () => { clearInterval(auto); auto = setInterval(next, 4500); });
+    
+    const io = new IntersectionObserver((entries)=>{ 
+      entries.forEach(entry=>{ 
+        if(entry.isIntersecting){ 
+          entry.target.classList.add('visible'); 
+          io.unobserve(entry.target); 
+        } 
+      }); 
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    // Form submission animation
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnArrow = document.getElementById('btnArrow');
+      const form = e.target;
+      
+      btn.disabled = true;
+      btnText.textContent = 'Enviando...';
+      btnArrow.style.transform = 'rotate(45deg)';
+      
+      setTimeout(() => {
+        btnText.textContent = '✓ Solicitud enviada';
+        btnArrow.style.transform = 'rotate(0deg)';
+        btn.classList.remove('bg-stone-900');
+        btn.classList.add('bg-green-700');
+        btn.classList.remove('hover:bg-stone-800');
+        btn.classList.add('hover:bg-green-800');
+        btn.classList.remove('shadow-stone-900/20', 'shadow-stone-900/30');
+        btn.classList.add('shadow-green-700/20', 'shadow-green-700/30');
+        form.reset();
+        
+        setTimeout(() => {
+          btn.disabled = false;
+          btnText.textContent = 'Enviar solicitud';
+          btn.classList.add('bg-stone-900', 'hover:bg-stone-800');
+          btn.classList.add('shadow-stone-900/20', 'shadow-stone-900/30');
+          btn.classList.remove('bg-green-700', 'hover:bg-green-800', 'shadow-green-700/20', 'shadow-green-700/30');
+        }, 3000);
+      }, 1200);
+    }
+  </script>
 </body>
 </html>
