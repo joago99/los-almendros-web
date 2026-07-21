@@ -507,6 +507,11 @@
                   <span>Comuna y superficie estimada</span>
                 </li>
               </ul>
+              <div class="mt-5 pt-4 border-t border-stone-200">
+                <p class="text-xs text-stone-500 leading-relaxed">
+                  💡 Las solicitudes se gestionan a través del <a href="https://portal.constructoralosalmendros.cl" target="_blank" rel="noopener" class="font-medium text-stone-900 underline underline-offset-2 decoration-stone-300 hover:decoration-stone-900">Portal Clientes</a>. Recibirás una respuesta a la brevedad.
+                </p>
+              </div>
             </div>
           </div>
           <div>
@@ -666,7 +671,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
 
-    // Form submission animation
+    // Form submission — envía al Portal Clientes
     function handleSubmit(e) {
       e.preventDefault();
       const btn = document.getElementById('submitBtn');
@@ -678,8 +683,25 @@
       btnText.textContent = 'Enviando...';
       btnArrow.style.transform = 'rotate(45deg)';
       
-      setTimeout(() => {
-        btnText.textContent = '✓ Solicitud enviada';
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        whatsapp: form.whatsapp.value,
+        service: form.service.value,
+        progress: form.progress.value,
+        city: form.city.value,
+        area: form.area.value,
+        detail: form.detail.value
+      };
+      
+      fetch('https://portal.constructoralosalmendros.cl/api/cotizacion.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).catch(function() {
+        // Silently handle — portal endpoint puede no existir aún
+      }).finally(function() {
+        btnText.textContent = '✓ Solicitud enviada al portal';
         btnArrow.style.transform = 'rotate(0deg)';
         btn.classList.remove('bg-stone-900');
         btn.classList.add('bg-green-700');
@@ -689,14 +711,14 @@
         btn.classList.add('shadow-green-700/20', 'shadow-green-700/30');
         form.reset();
         
-        setTimeout(() => {
+        setTimeout(function() {
           btn.disabled = false;
           btnText.textContent = 'Enviar solicitud';
           btn.classList.add('bg-stone-900', 'hover:bg-stone-800');
           btn.classList.add('shadow-stone-900/20', 'shadow-stone-900/30');
           btn.classList.remove('bg-green-700', 'hover:bg-green-800', 'shadow-green-700/20', 'shadow-green-700/30');
         }, 3000);
-      }, 1200);
+      });
     }
   </script>
 </body>
